@@ -18,4 +18,4 @@ You should be able to start the example application by executing com.example.dem
 
 Useful commands
 
-curl -u user:password "http://localhost:8888//northCountries"
+curl -u user:password "http://localhost:8888/northCountries"

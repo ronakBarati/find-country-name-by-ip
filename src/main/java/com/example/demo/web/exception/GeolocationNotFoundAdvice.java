@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-class CountryNotFoundAdvice {
+class GeolocationNotFoundAdvice {
 
     @ResponseBody
-    @ExceptionHandler(CountryNotFoundException.class)
+    @ExceptionHandler(GeolocationNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String employeeNotFoundHandler(CountryNotFoundException ex) {
+    String geolocationNotFoundHandler(GeolocationNotFoundException ex) {
         return ex.getMessage();
     }
 }

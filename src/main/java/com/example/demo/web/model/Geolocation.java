@@ -2,7 +2,7 @@ package com.example.demo.web.model;
 
 import java.io.Serializable;
 
-public class Country implements Serializable {
+public class Geolocation implements Serializable {
     private String status;
     private String country;
     private String countryCode;
@@ -17,6 +17,7 @@ public class Country implements Serializable {
     private String org;
     private String as;
     private String query;
+    private boolean northHemisphereCountry;
 
     public String getStatus() {
         return status;
@@ -128,5 +129,13 @@ public class Country implements Serializable {
 
     public void setQuery(String query) {
         this.query = query;
+    }
+
+    public boolean isNorthHemisphereCountry() {
+        return northHemisphereCountry;
+    }
+
+    public void setNorthHemisphereCountry(boolean northHemisphereCountry) {
+        this.northHemisphereCountry = northHemisphereCountry;
     }
 }

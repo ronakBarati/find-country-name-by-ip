@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.web.service.CountryService;
+import com.example.demo.web.service.GeolocationService;
 import net.minidev.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,15 +23,15 @@ import java.util.List;
 
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(value = CountryController.class)
+@WebMvcTest(value = GeolocationController.class)
 @WithMockUser(username = "admin", roles = "ADMIN")
-public class DemoApplicationTests {
+public class GeolocationApplicationTests {
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private CountryService countryService;
+    private GeolocationService geolocationService;
 
     List<String> countriesName = new ArrayList<>(Arrays.asList("Canada", "Iran"));
 
@@ -42,7 +42,7 @@ public class DemoApplicationTests {
         json.put("northCountries", countriesName);
 
         Mockito.when(
-                countryService.findCountryByIp(Mockito.anyList())).thenReturn(json);
+                geolocationService.findNorthHemisphereCountryByIp(Mockito.anyList())).thenReturn(json);
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
                 "/northCountries/?ip=24.48.0.1&ip=185.135.28.12").accept(

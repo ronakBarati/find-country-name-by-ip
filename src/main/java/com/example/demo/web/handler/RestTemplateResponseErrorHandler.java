@@ -1,6 +1,6 @@
 package com.example.demo.web.handler;
 
-import com.example.demo.web.exception.CountryNotFoundException;
+import com.example.demo.web.exception.GeolocationNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
@@ -38,7 +38,7 @@ public class RestTemplateResponseErrorHandler
                 .series() == HttpStatus.Series.CLIENT_ERROR) {
             //Handle CLIENT_ERROR
             if (httpResponse.getStatusCode() == HttpStatus.NOT_FOUND) {
-                throw new CountryNotFoundException();
+                throw new GeolocationNotFoundException();
             }
         }
     }
